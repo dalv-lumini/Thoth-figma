@@ -1,0 +1,328 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+font-size: 18px;
+font-weight: 500;
+line-height: 21px;
+letter-spacing: 0em;
+text-align: left;
+    -webkit-font-smoothing: antialiased;
+}
+.textos{
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+        -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+   
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    
+   
+}
+
+.azul {
+    background-color: #354261;
+}
+
+
+
+.textoconsulta {
+    color: #354261;
+    
+}
+
+.menu-vertical {
+    position: fixed;
+    top: 0;
+    left: -150px;
+    /* Inicialmente oculto */
+    width: 220px;
+    height: 100%;
+    background-color: #354261;
+    transition: left 0.3s ease;
+    z-index: 9999;
+}
+
+.menu-visible {
+    left: 0;
+    /* Mostrar el menú */
+}
+
+.menu-enlace {
+    display: block;
+    padding: 10px 20px;
+    color: #F6F9FF;
+    text-decoration: none;
+}
+
+.contenido {
+    margin-left: 200px;
+    /* Ajustar el margen para evitar la superposición del contenido */
+    transition: margin-left 0.3s ease;
+}
+
+.logo {
+    margin-left: 10vh;
+}
+.menu-abierto .contenido {
+    margin-left: 0;
+    /* Desplazar el contenido cuando se abre el menú */
+}
+
+.boton-menu {
+    font-size: 36px;
+    position: absolute;
+    border: 0px;
+    top: 30px;
+    right: 15px;
+    color:#F6F9FF;
+    background-color: #354261;
+}
+
+
+.boton-menu-conf {
+    font-size: 24px;
+    position: absolute;
+    border: 0px;
+    top: 80%;
+    right: 15px;
+    color: #F6F9FF;
+}
+
+.boton-menu-pos1 {
+    font-size: 36px;
+    position: absolute;
+    border: 0px;
+    top: 10%;
+    right: 15px;
+    color: #F6F9FF ;
+}
+.boton-menu-pos2 {
+    font-size: 36px;
+    position: absolute;
+    border: 0px;
+    top: 82%;
+    right: 15px;
+    color: #F6F9FF ;
+}
+
+.boton-menu-help {
+    font-size: 36px;
+    position: absolute;
+    border: 0px;
+    top: 90%;
+    right: 15px;
+    color: #F6F9FF ;
+}
+
+.botones_res {
+    border: 0px;
+    background-color: #F6F9FF;
+}
+.button_lupa {
+    font-size: 24px;
+    background-color: #F6F9FF !important;
+    border: 0px;
+}
+.button_microf {
+    font-size: 24px;
+    background-color: #F6F9FF !important;
+    border: 1px solid #354261;
+    color: #354261;
+    border-radius: 6px;
+    height: 41px;
+    margin-left: 6px;
+}
+.div-a-la-derecha {
+    text-align: right;
+    /* O puedes usar justify-content: flex-end; en el contenedor padre */
+}
+
+.iconos {
+    justify-content: flex-end;
+    text-align: right;
+    color: #354261;
+    display: flex;
+    background-color: #ffffff !important;
+ 
+   
+}
+
+.iconos i {
+    margin-left: 10px;
+    /* Espacio entre los iconos */
+    font-size: 12px;
+     background-color: #F6F9FF ;
+     
+     color: #354261;
+     
+}
+
+.formthot {
+    width: 70%;
+    height: 33px;
+    border: 1px;
+}
+
+.formthot input {
+    outline: none;
+    border: 1px solid #354261;
+    font-size: 14px;
+    color: #354261;
+    padding: 7px 38px 7px 8px;
+    border-radius: 6px;
+    transition: 0.3s;
+    width: 70%;
+    height: 33px;
+}
+
+.formthot input:focus,
+.formthot input:hover {}
+
+.formthot2 {
+    width:  85vh;
+    background-color: #F1F1F1 !important;
+    border: 1px solid #354261;
+    color: #354261;
+
+    border-radius: 6px;
+    height: 41px;
+}
+
+.formthot2 input {
+    background-color: #F1F1F1 !important;
+    border: 0;
+    font-size: 16px;
+    color: #354261;
+    
+    width:  80vh;
+}
+
+.formthot2 input:focus,
+.formthot2 input:hover,{
+    border: 0px;
+}
+.formthot2 input select {
+    
+    border: 0px;
+}
+
+.formthot2 button {
+    
+    border: 0;
+    font-size: 24px;
+    color: #354261;
+
+
+}
+
+.resposta {
+    padding-left: 45px;
+
+}
+
+.altura-fija {
+    height: 80vh; 
+    padding-right: 12px;
+    /* Altura fija deseada */
+}
+
+/* Estilos para el scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+    background-color: #347EBF33;
+    /* Fondo del scrollbar */
+}
+
+/* Estilo del track (área por la cual se desplaza el scrollbar) */
+::-webkit-scrollbar-track {
+    background-color: #347EBF33;
+    /* Color del fondo del scrollbar */
+}
+
+/* Estilo del thumb (la parte desplazable del scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #347EBF;
+    /* Color del scrollbar */
+    border-radius: 5px;
+    /* Radio de borde del scrollbar */
+    height: 45px !important;
+}
+
+/* Estilo del thumb al ser hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1f5f9a;
+    /* Color del scrollbar al hacer hover */
+    height: 45px;
+}
+
+/* Ocultar los botones de subir o bajar */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+.envinf{
+    align-items: end;
+    margin-right: 2px;
+}
+.respuesta{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buscando {
+    display: none;
+    font-size: 12px;
+    color: blue;
+    animation: fadeInOut 2s linear infinite;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .linea {
+    width: 400px; /* Ancho de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #ddd; /* Color base de la línea */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .linea::before {
+    content: '';
+    position: absolute;
+    left: -100%; /* Inicialmente fuera del área visible */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #00bfff); /* Gradiente de color para la iluminación */
+    animation: movimiento 2s linear infinite; /* Animación de movimiento */
+  }
+  
+  @keyframes movimiento {
+    0% {
+      left: -100%; /* Comienza fuera del área visible */
+    }
+    50% {
+      left: 100%; /* Mueve el gradiente al otro lado */
+    }
+    100% {
+      left: -100%; /* Regresa al inicio */
+    }
+  }

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Pesquisa Inteligente Thot</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+
+
+    <!-- Template Main CSS File 
+    <link href="assets/css/style.css" rel="stylesheet">-->
+
+    <!--<link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">-->
+
+
+    
+</head>
+
+<body>
+    <div class="menu-vertical" id="menu">
+        <button class="boton-menu"  onclick="toggleMenu()">☰</button>
+        <!-- <a href="#" class="menu-enlace">Inicio</a>
+        <a href="#" class="menu-enlace">Opción 1</a>
+        <a href="#" class="menu-enlace">Opción 2</a>
+        <a href="#" class="menu-enlace">Opción 3</a> -->
+        <button class="boton-menu-pos1 azul"  onclick="toggleMenu()"><i
+                class="bi bi-plus"></i></button>
+        <button class="boton-menu-pos2 azul"  onclick="toggleMenu()"><i
+                class="bi bi-gear"></i></button>
+        <button class="boton-menu-help azul"  onclick="toggleMenu()"><i
+                class="bi bi-person-check-fill"></i></button>
+    </div>
+    <div class="contenido">
+        <div class="row" style="margin-top:40px;">
+            <div class="col-3 logo"><img src="static\img\logo.png"></div>
+            <div class="col">
+                <div class="d-flex justify-content-center align-items-center">
+                   <!-- <form class="formthot" action="/buscar" method="POST">
+                        <input class="search-thot" type="text" name="pregunta" placeholder="Buscar término..">
+                        <button class="button_lupa bi bi-search" type="submit" ></button>
+                    </form>-->
+               </div>
+            </div>
+            <div class="col-2 align-items-center">              
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{ url_for('static', filename='assets/img/messages-2.jpg') }}" alt="Profile" class="rounded-circle" style="width:45px; height:45px;">
+        </a>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Configuration</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Fechar</a></li>
+          </ul>
+        </li>
+    
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-items-center">
+        </div>
+        <!--conteudo-->
+        <div class="col-8 align-items-center">
+            <div class="altura-fija overflow-auto">
+                <div class="div-centro" style="padding-top:20px;">
+                    {% for pregunta in preguntas %}
+                    <div class="user_message">
+                        <span class="d-none d-lg-block textos"><img class="rounded-circle" src="../static/img/messages-2.jpg"
+                                alt="Logo do usuário" style="width:45px; height:45px;">User</span>
+                        <span style="padding-left: 45px;" class="textos"> {{ pregunta.pregunta }} </span>
+                    </div>
+                    <div class="assistant_message respuesta" style="padding-top:10px;">
+                        <span class="d-none d-lg-block textos"><img class="user_logo" src="../static/img/logo_lumini.png"
+                                alt="Logo do usuário"> Thoth</span>
+                        <div style="padding-left: 45px;">
+                            <span class="textos"> {{ pregunta.respuesta }} </span></br>
+                        </div>
+                        
+                        <div class="iconos">
+                            <button class="botones_res copiar"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <button class="botones_res copiar"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <button class="botones_res copiar"><i class="bi bi-download"></i></button>
+                            <button class="botones_res copiar" data-text="{{ pregunta.respuesta }}"><i class="bi bi-files"></i></button>
+                        </div>
+                       
+                    </div>
+                     {% endfor %}
+                    <!-- Fin del bucle -->
+                </div>
+                                
+                <!-- Div para la animación de "buscando" -->
+                <div id="buscando" class="buscando">Buscando...</div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- segundo buscador -->
+    <div class="row">
+        <div class=" overflow-auto" style="padding-top: 18px;">
+            <div class="d-flex justify-content-center align-items-center">
+                
+                <form id="searchForm" action="/buscar" method="post" class="formthot2" >
+                    <input type="text" name="pregunta" placeholder=" ">
+                    <button type="submit"  style="border: 0px;" class="bi bi-symmetry-horizontal envinf"></button>
+                </form>
+              <button class="button_microf bi bi-mic" type="submit" name="submit" value="Enviar"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            var contenido = document.querySelector(".contenido");
+            contenido.classList.toggle("menu-abierto");
+            menu.classList.toggle("menu-visible");
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var botonesCopiar = document.querySelectorAll('.copiar');
+            botonesCopiar.forEach(function (boton) {
+                boton.addEventListener('click', function () {
+                    var texto = this.getAttribute('data-text');
+                    navigator.clipboard.writeText(texto)
+                        .then(function () {
+                            alert('Contenido copiado al portapapeles: ' + texto);
+                        })
+                        .catch(function (error) {
+                            console.error('Error al copiar al portapapeles: ', error);
+                            alert('Error al copiar al portapapeles');
+                        });
+                });
+            });
+
+            var botonesLike = document.querySelectorAll('.bi-hand-thumbs-up');
+            botonesLike.forEach(function (boton) {
+                boton.addEventListener('click', function () {
+                    // Lógica para dar like al contenido
+                    alert('Has dado like');
+                });
+            });
+
+            var botonesBajar = document.querySelectorAll('.bi-download');
+            botonesBajar.forEach(function (boton) {
+                boton.addEventListener('click', function () {
+                    // Lógica para bajar el contenido
+                    window.scrollTo(0, document.body.scrollHeight);
+                });
+            });
+        });
+    </script>
+    <script>
+   document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar Bootstrap
+      var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+      var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+         return new bootstrap.Dropdown(dropdownToggleEl)
+      });
+   });
+</script>
+
+
+
+<script>
+  // Mostrar la animación de "buscando" cuando se envía el formulario
+  document.getElementById('searchForm').addEventListener('submit', function() {
+    document.getElementById('buscando').style.display = 'block';
+   
+  });
+
+  // Función para desplazar la página hasta la respuesta
+  function scrollToResponse() {
+    var resultados = document.querySelector('.resultados');
+    var respuesta = resultados.lastElementChild;
+    var respuestaPosition = respuesta.getBoundingClientRect().top + window.scrollY;
+    var windowHeight = window.innerHeight;
+    if (respuestaPosition > windowHeight) {
+      window.scrollTo({
+        top: respuestaPosition - windowHeight + 20, // Ajuste para dejar espacio adicional
+        behavior: 'smooth' // Desplazamiento suave
+      });
+    }
+  }
+
+  // Llamar a la función de desplazamiento después de cargar la página
+  window.addEventListener('load', scrollToResponse);
+</script>
+
+</body>
+</html>
